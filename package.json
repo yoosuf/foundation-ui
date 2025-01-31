@@ -1,6 +1,6 @@
 {
   "name": "@yoosuf/foundation-ui",
-  "version": "0.1.58",
+  "version": "0.1.62",
   "description": "A modern, accessible Vue 3 component library",
   "type": "module",
   "main": "./dist/foundation-ui.umd.cjs",
@@ -12,7 +12,7 @@
       "import": "./dist/foundation-ui.es.js",
       "require": "./dist/foundation-ui.umd.cjs"
     },
-    "./styles.css": "./dist/style.css"
+    "./styles.css": "./dist/foundation-ui.css"
   },
   "files": [
     "dist"

@@ -7,15 +7,15 @@ import {
 
 // Memoize expensive computations
 const buttonVariants = {
-  primary: 'bg-blue-500 text-white',
-  secondary: 'bg-gray-200 text-black',
-  tertiary: 'border border-gray-300 bg-transparent'
+  primary: 'foundation-button--primary',
+  secondary: 'foundation-button--secondary',
+  tertiary: 'foundation-button--tertiary'
 }
 
 const buttonSizes = {
-  small: 'px-2 py-1 text-sm',
-  medium: 'px-4 py-2 text-base',
-  large: 'px-6 py-3 text-lg'
+  small: 'foundation-button--small',
+  medium: 'foundation-button--medium',
+  large: 'foundation-button--large'
 }
 
 interface ButtonProps {
@@ -42,8 +42,8 @@ const buttonClasses = computed(() => [
   buttonVariants[props.variant],
   buttonSizes[props.size],
   {
-    'opacity-50 cursor-not-allowed': props.disabled,
-    'cursor-wait': props.loading,
+    'foundation-button--disabled': props.disabled,
+    'foundation-button--loading': props.loading,
     'foundation-button--full-width': props.fullWidth
   }
 ])
@@ -86,6 +86,46 @@ const handleClick = (event: MouseEvent) => {
 
 .foundation-button--full-width {
   width: 100%;
+}
+
+.foundation-button--primary {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.foundation-button--secondary {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.foundation-button--tertiary {
+  border: 1px solid #ddd;
+  background-color: transparent;
+  color: #333;
+}
+
+.foundation-button--small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.foundation-button--medium {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.foundation-button--large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
+
+.foundation-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.foundation-button--loading {
+  cursor: wait;
 }
 
 .spinner {
