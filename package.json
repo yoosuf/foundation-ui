@@ -1,18 +1,18 @@
 {
   "name": "@yoosuf/foundation-ui",
-  "version": "0.1.25",
+  "version": "0.1.58",
   "description": "A modern, accessible Vue 3 component library",
   "type": "module",
   "main": "./dist/foundation-ui.umd.cjs",
-  "module": "./dist/foundation-ui.js",
+  "module": "./dist/foundation-ui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/foundation-ui.js",
+      "import": "./dist/foundation-ui.es.js",
       "require": "./dist/foundation-ui.umd.cjs"
     },
-    "./style.css": "./dist/foundation-ui.css"
+    "./styles.css": "./dist/style.css"
   },
   "files": [
     "dist"
@@ -21,12 +21,12 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly && node --experimental-specifier-resolution=node prepare-dist.js",
+    "dev": "vite dev",
+    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist && vite-node scripts/optimize-bundle.ts && node prepare-dist.js",
     "preview": "vite preview",
-    "test": "jest",
-    "lint": "eslint . --ext .vue,.js,.ts",
-    "prepublishOnly": "npm run build"
+    "lint": "eslint . --ext .vue,.ts",
+    "typecheck": "vue-tsc --noEmit",
+    "analyze": "vite-bundle-visualizer"
   },
   "keywords": [
     "vue",
@@ -36,24 +36,39 @@
     "typescript"
   ],
   "author": "Yoosuf Organization",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoosuf/foundation-ui.git"
+  },
+  "homepage": "https://github.com/yoosuf/foundation-ui#readme",
+  "bugs": {
+    "url": "https://github.com/yoosuf/foundation-ui/issues"
+  },
+  "dependencies": {
+    "vue": "^3.3.0"
+  },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.3.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.7",
-    "@babel/preset-typescript": "^7.26.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.12.0",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@types/node": "^20.10.5",
+    "@vitejs/plugin-vue": "^5.0.3",
     "@vue/test-utils": "^2.4.6",
-    "@vue/vue3-jest": "^29.2.6",
-    "babel-jest": "^29.7.0",
+    "eslint": "^8.56.0",
     "fs-extra": "^11.3.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vue-tsc": "^2.2.0"
-  }
+    "jsdom": "^26.0.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "terser": "^5.26.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-bundle-visualizer": "^0.4.0",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.4",
+    "vue-tsc": "^2.0.3"
+  },
+  "sideEffects": false,
+  "license": "MIT"
 }

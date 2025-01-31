@@ -67,7 +67,7 @@ async function prepareDist() {
           "import": "./foundation-ui.js",
           "require": "./foundation-ui.umd.cjs"
         },
-        "./foundation-ui.css": "./foundation-ui.css"
+        "./styles.css": "./foundation-ui.css"
       },
       files: ['dist']
     }

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "projectFolder": ".",
+  "mainEntryPointFilePath": "./dist/index.d.ts",
+  "bundledPackages": [],
+  "compiler": {
+    "tsconfigFilePath": "./tsconfig.json"
+  },
+  "dtsRollup": {
+    "enabled": true,
+    "publicTrimmedFilePath": "./dist/foundation-ui.d.ts"
+  },
+  "apiReport": {
+    "enabled": false
+  },
+  "docModel": {
+    "enabled": false
+  },
+  "tsdoc": {
+    "tsdocFlavor": "standard"
+  }
+}
