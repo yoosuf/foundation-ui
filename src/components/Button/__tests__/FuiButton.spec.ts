@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
-import Button from '../FuiButton.vue'
+import Button from "../../Button/index.vue";
 
 describe('FuiButton Component', () => {
   it('renders correctly', () => {
     const wrapper = mount(Button, {
-      props: {
-        label: 'Click me'
+      slots: {
+        default: 'Click me'
       }
     })
 
@@ -18,8 +18,8 @@ describe('FuiButton Component', () => {
 
   it('emits click event', async () => {
     const wrapper = mount(Button, {
-      props: {
-        label: 'Click me'
+      slots: {
+        default: 'Click me'
       }
     })
 
@@ -33,8 +33,10 @@ describe('FuiButton Component', () => {
   it('applies correct classes based on props', () => {
     const wrapper = mount(Button, {
       props: {
-        label: 'Primary Button',
         variant: 'primary'
+      },
+      slots: {
+        default: 'Primary Button'
       }
     })
 
@@ -45,8 +47,10 @@ describe('FuiButton Component', () => {
   it('disables button when disabled prop is true', () => {
     const wrapper = mount(Button, {
       props: {
-        label: 'Disabled Button',
         disabled: true
+      },
+      slots: {
+        default: 'Disabled Button'
       }
     })
 

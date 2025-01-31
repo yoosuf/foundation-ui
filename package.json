@@ -24,9 +24,11 @@
     "dev": "vite dev",
     "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist && vite-node scripts/optimize-bundle.ts && node prepare-dist.js",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.ts",
+    "lint": "eslint . --ext .vue,.js,.ts --fix",
+    "test": "vitest run",
     "typecheck": "vue-tsc --noEmit",
-    "analyze": "vite-bundle-visualizer"
+    "analyze": "vite-bundle-visualizer",
+    "prepare": "husky"
   },
   "keywords": [
     "vue",
@@ -59,6 +61,7 @@
     "@vue/test-utils": "^2.4.6",
     "eslint": "^8.56.0",
     "fs-extra": "^11.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "rollup-plugin-visualizer": "^5.14.0",
     "terser": "^5.26.0",
